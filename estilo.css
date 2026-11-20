@@ -1,0 +1,165 @@
+/* O site da Midas: papel claro, noite e ouro (o nome vem da lenda do rei Midas). Sem fonte de fora. */
+:root {
+  --papel: #f6f1e7;
+  --papel-2: #eee6d4;
+  --tinta: #1b1813;
+  --tinta-suave: #5c5446;
+  --linha: #d9cdb5;
+  --ouro: #a77a22;
+  --ouro-texto: #7f5a10;
+  --noite: #14110c;
+  --noite-texto: #d8ccb2;
+  --noite-suave: #a3967a;
+  --ouro-claro: #e2c06e;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --recuo: 252px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--papel); color: var(--tinta);
+  font: 17px/1.65 var(--sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+a { color: var(--ouro-texto); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--tinta); }
+:focus-visible { outline: 2px solid var(--ouro); outline-offset: 3px; border-radius: 2px; }
+.envoltorio { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+/* A capa (faixa escura do topo) */
+.capa { background: var(--noite); color: var(--noite-texto); position: relative; }
+.capa::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ouro), transparent); opacity: .7;
+}
+.barra { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 28px; padding: 22px 0; }
+.marca {
+  display: inline-flex; align-items: center; gap: 12px; text-decoration: none;
+  color: #f3ead6; font: 600 1.2rem/1 var(--serif); letter-spacing: .03em;
+}
+.marca svg { width: 34px; height: 34px; color: var(--ouro-claro); flex: none; }
+.marca:hover { color: var(--ouro-claro); }
+.barra ul { display: flex; flex-wrap: wrap; gap: 6px 26px; list-style: none; margin: 0; padding: 0; font-size: .9rem; }
+.barra ul a { color: var(--noite-suave); text-decoration: none; padding: 8px 0; }
+.barra ul a:hover { color: var(--ouro-claro); }
+
+.capa-corpo {
+  display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 48px; align-items: center; padding: 64px 0 80px;
+}
+.sobretitulo, .rotulo { font: 600 .74rem/1.4 var(--sans); letter-spacing: .18em; text-transform: uppercase; }
+.sobretitulo { color: var(--ouro-claro); margin: 0 0 18px; }
+.capa h1 {
+  margin: 0; color: #f7eed9; font: 400 clamp(4.2rem, 11vw, 8.6rem)/.92 var(--serif); letter-spacing: -.02em;
+}
+.lema { margin: 16px 0 26px; color: var(--ouro-claro); font: italic 400 clamp(1.45rem, 2.6vw, 2.05rem)/1.25 var(--serif); }
+.abertura { max-width: 33em; margin: 0 0 34px; font-size: 1.06rem; }
+.acoes { display: flex; flex-wrap: wrap; gap: 14px; margin: 0; }
+.botao, .botao-linha {
+  display: inline-flex; align-items: center; min-height: 46px; padding: 0 22px; border-radius: 999px;
+  font-weight: 600; font-size: .95rem; text-decoration: none; transition: background .2s, color .2s, border-color .2s;
+}
+.botao { background: var(--ouro-claro); color: var(--noite); }
+.botao:hover { background: #efd393; color: var(--noite); }
+.botao-linha { border: 1px solid rgba(226, 192, 110, .45); color: #f0e7d3; }
+.botao-linha:hover { border-color: var(--ouro-claro); color: var(--ouro-claro); }
+.selo { justify-self: end; width: min(100%, 380px); }
+.selo svg { display: block; width: 100%; height: auto; }
+.selo text { font: 600 13px var(--sans); letter-spacing: .32em; fill: var(--ouro-claro); fill-opacity: .7; }
+.lenda {
+  margin: 0; padding: 22px 0 28px; border-top: 1px solid rgba(226, 192, 110, .16);
+  color: var(--noite-suave); font: italic 1rem/1.5 var(--serif);
+}
+
+/* As seções da página inicial */
+.secao { padding: 96px 0; }
+.secao + .secao { border-top: 1px solid var(--linha); }
+.secao-cabeca { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; margin-bottom: 48px; }
+.rotulo { margin: 0; padding-top: .9em; color: var(--ouro-texto); }
+.secao h2 {
+  margin: 0; max-width: 16em; font: 400 clamp(2rem, 4.2vw, 3.1rem)/1.1 var(--serif);
+  letter-spacing: -.01em; text-wrap: balance;
+}
+.recuo { margin-left: var(--recuo); }
+
+.livro { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--tinta); }
+.livro li {
+  display: grid; grid-template-columns: 220px minmax(0, 1fr) 190px; gap: 32px;
+  padding: 30px 0; border-bottom: 1px solid var(--linha); align-items: baseline;
+}
+.num { color: var(--ouro); font: 400 1.7rem/1 var(--serif); }
+.livro h3 { margin: 0 0 8px; font: 600 1.4rem/1.25 var(--serif); }
+.livro p { margin: 0; max-width: 34em; color: var(--tinta-suave); }
+.acesso { text-align: right; color: var(--tinta-suave); font-size: .78rem; line-height: 1.5; letter-spacing: .06em; text-transform: uppercase; }
+.acesso strong { display: block; color: var(--tinta); letter-spacing: .1em; }
+
+.grande { max-width: 27em; margin-top: 0; margin-bottom: 0; font: 400 clamp(1.3rem, 2.2vw, 1.7rem)/1.45 var(--serif); }
+
+.dados { background: var(--papel-2); }
+.compromissos {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0 0 44px var(--recuo); border-top: 1px solid var(--tinta);
+}
+.compromissos div { padding: 26px 0 30px; border-bottom: 1px solid var(--linha); }
+.compromissos div:nth-child(odd) { padding-right: 40px; border-right: 1px solid var(--linha); }
+.compromissos div:nth-child(even) { padding-left: 40px; }
+.compromissos dt { margin-bottom: 10px; color: var(--ouro-texto); font: 600 .76rem/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; }
+.compromissos dd { margin: 0; font: 400 1.22rem/1.45 var(--serif); }
+.link-seta { font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+
+.en p { max-width: 44em; margin-top: 0; margin-bottom: 0; color: var(--tinta-suave); }
+
+/* O rodapé */
+.rodape { background: var(--noite); color: var(--noite-suave); font-size: .9rem; }
+.rodape-corpo { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px 40px; padding: 40px 0 18px; }
+.rodape .marca { font-size: 1.05rem; }
+.rodape .marca svg { width: 28px; height: 28px; }
+.rodape ul { display: flex; flex-wrap: wrap; gap: 8px 28px; list-style: none; margin: 0; padding: 0; }
+.rodape a { color: var(--noite-texto); text-decoration: none; }
+.rodape a:hover { color: var(--ouro-claro); }
+.rodape-fim { margin: 0; padding: 16px 0 34px; border-top: 1px solid rgba(226, 192, 110, .14); font-size: .82rem; }
+
+/* A política de privacidade */
+.capa-curta .capa-corpo { display: block; padding: 48px 0 60px; }
+.capa-curta h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.02; }
+.versao { margin: 16px 0 0; color: var(--ouro-claro); font: italic 1.12rem/1.4 var(--serif); }
+.documento { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 64px; padding-top: 72px; padding-bottom: 104px; }
+.sumario { position: sticky; top: 28px; align-self: start; font-size: .9rem; }
+.sumario ol { list-style: none; margin: 14px 0 0; padding: 0; border-left: 1px solid var(--linha); }
+.sumario a {
+  display: block; margin-left: -1px; padding: 5px 0 5px 16px; border-left: 1px solid transparent;
+  color: var(--tinta-suave); text-decoration: none;
+}
+.sumario a:hover { color: var(--tinta); border-left-color: var(--ouro); }
+.texto { max-width: 41em; }
+.texto h2 { margin: 2.3em 0 .55em; font: 400 1.65rem/1.2 var(--serif); scroll-margin-top: 24px; }
+.texto > h2:first-child, .texto section:first-child h2 { margin-top: 0; }
+.texto h2 .n { margin-right: .45em; color: var(--ouro); }
+.texto p { margin: 0 0 1em; }
+.texto ul { margin: 0 0 1em; padding-left: 1.2em; }
+.texto li { margin: .55em 0; }
+.texto li::marker { color: var(--ouro); }
+.separador { margin: 4.5em 0 3em; border: 0; border-top: 1px solid var(--tinta); }
+
+/* Telas estreitas */
+@media (max-width: 880px) {
+  :root { --recuo: 0px; }
+  .capa-corpo { grid-template-columns: 1fr; padding: 44px 0 60px; }
+  .selo { display: none; }
+  .secao { padding: 68px 0; }
+  .secao-cabeca { grid-template-columns: 1fr; gap: 10px; margin-bottom: 36px; }
+  .rotulo { padding-top: 0; }
+  .livro li { grid-template-columns: 40px minmax(0, 1fr); gap: 8px 16px; }
+  .acesso { grid-column: 2; text-align: left; }
+  .compromissos { grid-template-columns: 1fr; }
+  .compromissos div:nth-child(n) { padding: 22px 0; border-right: 0; }
+  .documento { grid-template-columns: 1fr; gap: 36px; padding-top: 48px; }
+  .sumario { position: static; }
+}
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .envoltorio { padding: 0 20px; }
+  .barra ul { gap: 4px 18px; font-size: .85rem; }
+}
